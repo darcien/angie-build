@@ -1,0 +1,10 @@
+# The README walkthrough generates its keys and demo config here.
+demo/
+
+*.pem
+*.key
+
+# ISRG Root X1 is a public CA cert. The Dockerfile pins it
+# so apt can speak https to snapshot.debian.org
+# before ca-certificates is installed.
+!isrg-root-x1.pem
