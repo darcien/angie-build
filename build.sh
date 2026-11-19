@@ -15,7 +15,7 @@
 set -euo pipefail
 
 SSL_IMPL="${1:-boringssl}"
-ANGIE_VERSION="${ANGIE_VERSION:-1.11.8}"
+ANGIE_VERSION="${ANGIE_VERSION:-1.12.4}"
 
 # Resolved before the case: both release tags embed it. "unversioned" only
 # happens outside a git checkout — tolerated for local experiments. A dirty

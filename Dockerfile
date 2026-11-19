@@ -28,7 +28,7 @@ FROM debian:bookworm@sha256:30482e873082e906a4908c10529180aefb6f77620aea7404b909
 # timestamps; bump together with the version pins. Determinism is the only
 # requirement — build.sh reads this default and passes it as a build arg so
 # BuildKit also stamps image config/history times with it.
-ARG SOURCE_DATE_EPOCH=1767225600
+ARG SOURCE_DATE_EPOCH=1795046400
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 
 # Apt from a dated snapshot: same SNAPSHOT_DATE, same package set.
@@ -71,11 +71,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         echo 'libssl-dev is installed; configure could silently fall back to system OpenSSL' >&2; exit 1; fi \
     && test ! -e /usr/include/openssl
 
-ARG ANGIE_VERSION=1.11.8
+ARG ANGIE_VERSION=1.12.4
 # sha256 of angie-${ANGIE_VERSION}.tar.gz. Cross-checked against the
 # GPG-signed apt Sources index (angie_${ANGIE_VERSION}.orig.tar.gz — same
 # content, independent provenance). Update together with ANGIE_VERSION.
-ARG ANGIE_SHA256=849897c78f79c3b04d035778e34993a92188e6bd2c0c3ba8ce3ad5eb1505ebd3
+ARG ANGIE_SHA256=b236f152adb543fb6e4a94f271b873cdc0d48d570f86b1bd04435f85843f4527
 WORKDIR /build
 RUN curl -fsSL -o angie.tar.gz \
         "https://download.angie.software/files/angie-${ANGIE_VERSION}.tar.gz" \
